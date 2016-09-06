@@ -1,10 +1,57 @@
-#############################################
-# Config file created by Johan Jansson (twrdosaurus) #
-#                     Use and edit as you want                    #
-#############################################
-# i3 config file (v4)                                                    #
-# http://i3wm.org/docs/userguide.html                         #
-#############################################
+############################################
+# Config file for i3 by Johan (twrosaurus) #
+#         Use and edit as you want         #
+############################################
+# i3 config file (v4)                      #
+# http://i3wm.org/docs/userguide.html      #
+############################################
+
+# === Style ===
+# Using Anonymous Pro
+font pango:"Anonymous Pro" 11px
+
+# Enable transparancy with xcompmgr
+exec xcompmgr -n
+
+# Background images using feh
+exec --no-startup-id feh --bg-scale ~/Pictures/backgrounds/rainy-forest.jpg
+
+# Define colors
+set $black #090e11
+set $white #ecf0f1
+set $gray #2c3e50
+set $light_gray #bdc3c7
+set $red #c0392b
+set $green #bdc3c7
+set $yellow #bdc3c7
+set $blue #bdc3c7
+set $purple #bdc3c7
+set $dark_green #bdc3c7
+
+# Color classes                 border          backgr          text            indicator       child_border
+client.focused                  $white          $light_gray     $black          $purple         $light_gray
+client.unfocused                $gray           $light_gray     $white          $purple         $light_gray
+client.focused_inactive         $light_gray     $light_gray     $black          $purple         $light_gray
+client.urgent                   $red            $light_gray     $white          $purple         $light_gray
+
+# Setting up rofi colors (TODO: Move this to $$$)
+set $roficolors -color-window "argb:b5090e11, argb:b5090e11, #2c3e50" -color-normal "argb:0090e11, #ecf0f1, argb:0090e11, #2980b9, #2c3e50" -color-active "argb:0090e11, #ecf0f1, argb:0090e11, argb:0090e11, #ecf0f1" -color-urgent "argb:0fdf6e3, #c0392b, argb:0eee8d5, #c0392b, #ecf0f1"
+
+# === Settings ===
+# Handles labeling windows to urgent
+focus_on_window_activation smart
+
+# Hides borders when there's only one window
+hide_edge_borders none
+
+# Setting the terminal och choice
+set $terminal konsole
+
+# Setting the runner
+set $runner exec rofi -padding 300 -fullscreen -separator-style none -show run $roficolors
+
+# Starting NetworkManager applet
+exec --no-startup-id nm-applet
 
 # === Key defies ===
 # Mod key
@@ -17,108 +64,91 @@ set $down j
 set $right l
 set $left h
 
-# Font for window titles. Will also be used by the bar unless a different font
-# is used in the bar {} block below.
-font pango:monospace 8
-
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
-# text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
-
-# Before i3 v4.8, we used to recommend this one as the default:
-# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-# The font above is very space-efficient, that is, it looks good, sharp and
-# clear in small sizes. However, its unicode glyph coverage is limited, the old
-# X core fonts rendering does not support right-to-left and this being a bitmap
-# font, it doesn’t scale on retina/hidpi displays.
-
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# start a terminal
-bindsym $mod+Return exec konsole
+# Starts the terminal of choice
+bindsym $mod+Return             exec $terminal
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+w                  kill
 
-# start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+# Runs the selected runner
+bindsym $mod+t                  exec $runner
 
-# change focus
-bindsym $mod+$left focus left
-bindsym $mod+$down focus down
-bindsym $mod+$up focus up
-bindsym $mod+$right focus right
+# Change focus
+bindsym $mod+$left              focus left
+bindsym $mod+$down              focus down
+bindsym $mod+$up                focus up
+bindsym $mod+$right             focus right
 
-# move focused window
-bindsym $mod+Shift+$left move left
-bindsym $mod+Shift+$down move down
-bindsym $mod+Shift+$up move up
-bindsym $mod+Shift+$right move right
+# Focus up or down
+bindsym $mod+a                  focus parent
+bindsym $mod+d                  focus child
 
-# split in horizontal orientation
-bindsym $mod+b split h
+# Move focused window
+bindsym $mod+Shift+$left        move left
+bindsym $mod+Shift+$down        move down
+bindsym $mod+Shift+$up          move up
+bindsym $mod+Shift+$right       move right
 
-# split in vertical orientation
-bindsym $mod+v split v
+# Split in horizontal orientation
+bindsym $mod+q                  split h
 
-# enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
+# Split in vertical orientation
+bindsym $mod+e                  split v
+
+# Enter fullscreen mode for the focused container
+bindsym $mod+f                  fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+s                  layout stacking
+bindsym $mod+w                  layout tabbed
+bindsym $mod+e                  layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+Shift+space        floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
-
-# focus the parent container
-bindsym $mod+a focus parent
-
-# focus the child container
-#bindsym $mod+d focus child
+bindsym $mod+space              focus mode_toggle
 
 # switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+bindsym $mod+1                  workspace 1
+bindsym $mod+2                  workspace 2
+bindsym $mod+3                  workspace 3
+bindsym $mod+4                  workspace 4
+bindsym $mod+5                  workspace 5
+bindsym $mod+6                  workspace 6
+bindsym $mod+7                  workspace 7
+bindsym $mod+8                  workspace 8
+bindsym $mod+9                  workspace 9
+bindsym $mod+0                  workspace 10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+1            move container to workspace 1
+bindsym $mod+Shift+2            move container to workspace 2
+bindsym $mod+Shift+3            move container to workspace 3
+bindsym $mod+Shift+4            move container to workspace 4
+bindsym $mod+Shift+5            move container to workspace 5
+bindsym $mod+Shift+6            move container to workspace 6
+bindsym $mod+Shift+7            move container to workspace 7
+bindsym $mod+Shift+8            move container to workspace 8
+bindsym $mod+Shift+9            move container to workspace 9
+bindsym $mod+Shift+0            move container to workspace 10
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
+bindsym $mod+Shift+c            reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
+bindsym $mod+Shift+r            restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Exit i3?' -b 'Yes' 'i3-msg exit'"
 
-# resize window (you can also use the mouse for that)
+# == Modes ==
+# Resize window mode
 mode "resize" {
+        # To exit mode, use: 'Return' or 'Escape'
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
         # These bindings trigger as soon as you enter the resize mode
 
         # Pressing left will shrink the window’s width.
@@ -129,40 +159,29 @@ mode "resize" {
         bindsym k resize grow height 10 px or 10 ppt
         bindsym l resize shrink height 10 px or 10 ppt
         bindsym odiaeresis resize grow width 10 px or 10 ppt
-
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
-
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
 }
 
 bindsym $mod+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
+# Default Status bar, shown only on the laptop
 bar {
-	position top
+        id statusbar
+        output LVDS1
+        tray_output LVDS1
+        position top
         status_command i3status
-	colors {
-		background #2f4f4f
-		separator #d0d0d0
-		statusline #
-	}
+        colors {
+                background              $black
+                separator               $light_gray
+                statusline              $white
+                # Workspace type        border          background      text
+                focused_workspace       $black          $light_gray     $black
+                inactive_workspace      $light_gray     $black          $light_gray
+                active_workspace        $black          $gray           $black
+                urgent_workspace        $red            $black          $red
+                binding_mode            $blue           $blue           $blue
+        }
 }
 
 # Enable media buttons
 bindsym XF86AudioRaiseVolume exec konsole
-
-# Starting NetworkManager applet
-exec --no-startup-id nm-applet
-
-# Background images using feh
-exec --no-startup-id feh --bg-scale ~/Pictures/backgrounds/rainy-forest.jpg
-
-# Enable transparancy with xcompmgr
-exec xcompmgr -n
