@@ -16,26 +16,26 @@ exec xcompmgr -n
 # Background images using feh
 exec --no-startup-id feh --bg-scale ~/Pictures/backgrounds/rainy-forest.jpg
 
-# Define colors
+# Define colors (TODO: Change to context based (ie: focused) instead of colors)
 set $black #090e11
 set $white #ecf0f1
 set $gray #2c3e50
 set $light_gray #bdc3c7
 set $red #c0392b
 set $green #bdc3c7
-set $yellow #bdc3c7
-set $blue #bdc3c7
-set $purple #bdc3c7
-set $dark_green #bdc3c7
+set $yellow #f39c12
+set $blue #2980b9
+set $purple #8e44ad
+set $dark_green #16a085
 
 # Color classes                 border          backgr          text            indicator       child_border
-client.focused                  $black          $gray           $black          $purple         $light_gray
+client.focused                  $black          $black          $blue           $purple         $light_gray
 client.unfocused                $black          $black          $white          $purple         $light_gray
-client.focused_inactive         $black          $light_gray     $black          $purple         $light_gray
-client.urgent                   $black          $red            $white          $purple         $light_gray
+client.focused_inactive         $black          $black          $white          $purple         $light_gray
+client.urgent                   $red            $red            $white          $purple         $light_gray
 
 # Setting up rofi colors (TODO: Move this to $$$)
-set $roficolors -color-window "argb:b5090e11, argb:b5090e11, #2c3e50" -color-normal "argb:0090e11, #ecf0f1, argb:0090e11, #2980b9, #2c3e50" -color-active "argb:0090e11, #ecf0f1, argb:0090e11, argb:0090e11, #ecf0f1" -color-urgent "argb:0fdf6e3, #c0392b, argb:0eee8d5, #c0392b, #ecf0f1"
+set $rofi-config ~./.config/rofi/config
 
 # === Settings ===
 # Handles labeling windows to urgent
@@ -48,7 +48,7 @@ hide_edge_borders none
 set $terminal konsole
 
 # Setting the runner
-set $runner exec rofi -padding 300 -fullscreen -separator-style none -show run $roficolors
+set $runner exec rofi -padding 300 -fullscreen -separator-style none -show run -config $rofi-config
 
 # Starting NetworkManager applet
 exec --no-startup-id nm-applet
@@ -176,7 +176,7 @@ bar {
                 statusline              $white
                 # Workspace type        border          background      text
                 focused_workspace       $gray           $light_gray     $gray
-                inactive_workspace      $light_gray     $gray          $light_gray
+                inactive_workspace      $gray           $gray           $light_gray
                 active_workspace        $gray           $gray           $gray
                 urgent_workspace        $red            $black          $red
                 binding_mode            $blue           $blue           $blue
