@@ -55,9 +55,6 @@ client.unfocused                $black          $black          $white          
 client.focused_inactive         $black          $black          $white          $purple         $light_gray
 client.urgent                   $red            $red            $white          $purple         $light_gray
 
-# Setting up rofi colors (TODO: Move this to $$$)
-set $rofi-colors -color-window "argb:b5090e11, argb:b5090e11, argb:02c3e50" -color-normal "argb:0090e11, #ecf0f1, argb:0090e11, #2980b9, #2c3e50" -color-active "argb:0090e11, #ecf0f1, argb:0090e11, argb:0090e11, #ecf0f1" -color-urgent "argb:0fdf6e3, #c0392b, argb:0eee8d5, #c0392b, #ecf0f1"
-
 # === Settings ===
 # Handles labeling windows to urgent
 focus_on_window_activation smart
@@ -66,7 +63,7 @@ focus_on_window_activation smart
 hide_edge_borders none
 
 # Setting the runner
-set $runner exec rofi -padding 300 -fullscreen -separator-style none -show run -config $rofi-colors
+set $runner exec rofi -padding 300 -fullscreen -separator-style none -show run
 
 # Starting NetworkManager applet
 exec --no-startup-id nm-applet
