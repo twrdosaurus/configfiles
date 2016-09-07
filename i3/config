@@ -29,13 +29,13 @@ set $purple #8e44ad
 set $dark_green #16a085
 
 # Color classes                 border          backgr          text            indicator       child_border
-client.focused                  $black          $black          $blue           $purple         $light_gray
+client.focused                  $blue           $light_gray     $white          $purple         $light_gray
 client.unfocused                $black          $black          $white          $purple         $light_gray
 client.focused_inactive         $black          $black          $white          $purple         $light_gray
 client.urgent                   $red            $red            $white          $purple         $light_gray
 
 # Setting up rofi colors (TODO: Move this to $$$)
-set $rofi-config ~./.config/rofi/config
+set $rofi-colors -color-window "argb:b5090e11, argb:b5090e11, argb:02c3e50" -color-normal "argb:0090e11, #ecf0f1, argb:0090e11, #2980b9, #2c3e50" -color-active "argb:0090e11, #ecf0f1, argb:0090e11, argb:0090e11, #ecf0f1" -color-urgent "argb:0fdf6e3, #c0392b, argb:0eee8d5, #c0392b, #ecf0f1"
 
 # === Settings ===
 # Handles labeling windows to urgent
@@ -48,7 +48,7 @@ hide_edge_borders none
 set $terminal konsole
 
 # Setting the runner
-set $runner exec rofi -padding 300 -fullscreen -separator-style none -show run -config $rofi-config
+set $runner exec rofi -padding 300 -fullscreen -separator-style none -show run -config $rofi-colors
 
 # Starting NetworkManager applet
 exec --no-startup-id nm-applet
@@ -92,11 +92,11 @@ bindsym $mod+Shift+$down        move down
 bindsym $mod+Shift+$up          move up
 bindsym $mod+Shift+$right       move right
 
-# Split in horizontal orientation
-bindsym $mod+q                  split h
-
 # Split in vertical orientation
-bindsym $mod+e                  split v
+bindsym $mod+q                  split v
+
+# Split in horizontal orientation
+bindsym $mod+e                  split h
 
 # Enter fullscreen mode for the focused container
 bindsym $mod+f                  fullscreen toggle
