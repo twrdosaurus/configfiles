@@ -6,15 +6,35 @@
 # http://i3wm.org/docs/userguide.html      #
 ############################################
 
+# === Variables ===
+set $resize-small       5
+set $resize-normal      10
+set $resize-big         20
+# The background image to use
+set $bg-image           ~/Pictures/backgrounds/i3-bg.*
+set $font               "Anonymous Pro" 11px
+
+# Setting the terminal och choice
+set $terminal konsole
+
+# Mod key
+#  - Values: Mod1(Alt key), Mod4(Windows key)
+set $mod Mod4
+# Direction keys
+set $up k
+set $down j
+set $right l
+set $left h
+
 # === Style ===
 # Using Anonymous Pro
-font pango:"Anonymous Pro" 11px
+font pango:$font
 
 # Enable transparancy with xcompmgr
 exec xcompmgr -n
 
 # Background images using feh
-exec --no-startup-id feh --bg-scale ~/Pictures/backgrounds/rainy-forest.jpg
+exec --no-startup-id feh --bg-scale $bg-image
 
 # Define colors (TODO: Change to context based (ie: focused) instead of colors)
 set $black #090e11
@@ -44,9 +64,6 @@ focus_on_window_activation smart
 # Hides borders when there's only one window
 hide_edge_borders none
 
-# Setting the terminal och choice
-set $terminal konsole
-
 # Setting the runner
 set $runner exec rofi -padding 300 -fullscreen -separator-style none -show run -config $rofi-colors
 
@@ -54,16 +71,6 @@ set $runner exec rofi -padding 300 -fullscreen -separator-style none -show run -
 exec --no-startup-id nm-applet
 
 # === Key defies ===
-# Mod key
-#  - Values: Mod1(Alt key), Mod4(Windows key)
-set $mod Mod4
-
-# Direction keys
-set $up k
-set $down j
-set $right l
-set $left h
-
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -155,10 +162,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym odiaeresis resize grow width 10 px or 10 ppt
+        bindsym $right  resize grow   width     $resize-normal px or $resize-normal ppt
+        bindsym $left   resize shrink width     $resize-normal px or $resize-normal ppt
+        bindsym $up     resize grow   height    $resize-normal px or $resize-normal ppt
+        bindsym $down   resize shrink height    $resize-normal px or $resize-normal ppt
 }
 
 bindsym $mod+r mode "resize"
@@ -179,7 +186,7 @@ bar {
                 inactive_workspace      $gray           $gray           $light_gray
                 active_workspace        $gray           $gray           $gray
                 urgent_workspace        $red            $black          $red
-                binding_mode            $blue           $blue           $blue
+                binding_mode            $blue           $blue           $gray
         }
 }
 
