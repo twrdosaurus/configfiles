@@ -7,18 +7,19 @@
 ############################################
 
 # === Variables ===
+# Pixels or points to resize by
 set $resize-small       5
 set $resize-normal      10
 set $resize-big         20
 # The background image to use
 set $bg-image           ~/Pictures/backgrounds/i3-bg.*
+# The font to use
 set $font               "Anonymous Pro" 11px
 
 # Setting the terminal och choice
 set $terminal konsole
 
-# Mod key
-#  - Values: Mod1(Alt key), Mod4(Windows key)
+# Mod key [values: Mod1(Alt key), Mod4(Windows key)]
 set $mod Mod4
 # Direction keys
 set $up k
@@ -148,7 +149,7 @@ bindsym $mod+Shift+c            reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r            restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Exit i3?' -b 'Yes' 'i3-msg exit'"
+bindsym $mod+Shift+e exec i3-msg exit
 
 # == Modes ==
 # Resize window mode
@@ -186,7 +187,7 @@ bar {
                 inactive_workspace      $gray           $gray           $light_gray
                 active_workspace        $gray           $gray           $gray
                 urgent_workspace        $red            $black          $red
-                binding_mode            $blue           $blue           $gray
+                binding_mode            $blue           $blue           $white
         }
 }
 
