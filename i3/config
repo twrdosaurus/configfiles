@@ -29,10 +29,10 @@ set $purple #bdc3c7
 set $dark_green #bdc3c7
 
 # Color classes                 border          backgr          text            indicator       child_border
-client.focused                  $white          $light_gray     $black          $purple         $light_gray
-client.unfocused                $gray           $light_gray     $white          $purple         $light_gray
-client.focused_inactive         $light_gray     $light_gray     $black          $purple         $light_gray
-client.urgent                   $red            $light_gray     $white          $purple         $light_gray
+client.focused                  $black          $gray           $black          $purple         $light_gray
+client.unfocused                $black          $black          $white          $purple         $light_gray
+client.focused_inactive         $black          $light_gray     $black          $purple         $light_gray
+client.urgent                   $black          $red            $white          $purple         $light_gray
 
 # Setting up rofi colors (TODO: Move this to $$$)
 set $roficolors -color-window "argb:b5090e11, argb:b5090e11, #2c3e50" -color-normal "argb:0090e11, #ecf0f1, argb:0090e11, #2980b9, #2c3e50" -color-active "argb:0090e11, #ecf0f1, argb:0090e11, argb:0090e11, #ecf0f1" -color-urgent "argb:0fdf6e3, #c0392b, argb:0eee8d5, #c0392b, #ecf0f1"
@@ -102,9 +102,9 @@ bindsym $mod+e                  split v
 bindsym $mod+f                  fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s                  layout stacking
-bindsym $mod+w                  layout tabbed
-bindsym $mod+e                  layout toggle split
+bindsym $mod+z                  layout stacking
+bindsym $mod+x                  layout tabbed
+bindsym $mod+c                  layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space        floating toggle
@@ -171,13 +171,13 @@ bar {
         position top
         status_command i3status
         colors {
-                background              $black
+                background              $gray
                 separator               $light_gray
                 statusline              $white
                 # Workspace type        border          background      text
-                focused_workspace       $black          $light_gray     $black
-                inactive_workspace      $light_gray     $black          $light_gray
-                active_workspace        $black          $gray           $black
+                focused_workspace       $gray           $light_gray     $gray
+                inactive_workspace      $light_gray     $gray          $light_gray
+                active_workspace        $gray           $gray           $gray
                 urgent_workspace        $red            $black          $red
                 binding_mode            $blue           $blue           $blue
         }
