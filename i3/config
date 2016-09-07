@@ -29,7 +29,7 @@ set $purple #8e44ad
 set $dark_green #16a085
 
 # Color classes                 border          backgr          text            indicator       child_border
-client.focused                  $blue           $light_gray     $white          $purple         $light_gray
+client.focused                  $blue           $blue           $white          $purple         $light_gray
 client.unfocused                $black          $black          $white          $purple         $light_gray
 client.focused_inactive         $black          $black          $white          $purple         $light_gray
 client.urgent                   $red            $red            $white          $purple         $light_gray
