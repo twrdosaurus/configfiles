@@ -7,28 +7,32 @@
 ############################################
 
 # === Variables ===
-# Pixels or points to resize by
-set $resize-small       5
-set $resize-normal      10
-set $resize-big         20
-# The background image to use
-set $bg-image           ~/Pictures/backgrounds/i3-bg.*
-# The font to use
-set $font               "Anonymous Pro" 11px
-
-# Setting the terminal och choice
-set $terminal konsole
-
-# Mod key [values: Mod1(Alt key), Mod4(Windows key)]
-set $mod Mod4
 # Direction keys
 set $up k
 set $down j
 set $right l
 set $left h
 
+# Mod key [values: Mod1(Alt key), Mod4(Windows key)]
+set $mod Mod4
+
+# The font to use
+set $font               "Clear Sans" 11px
+
+# Pixels or points to resize by
+set $resize-small       5
+set $resize-normal      10
+set $resize-big         20
+# The background image to use
+set $bg-image           ~/Pictures/backgrounds/i3-bg.*
+
+# Setting the terminal och choice
+set $terminal konsole
+# Setting the runner
+set $runner exec rofi -padding 300 -fullscreen -separator-style none -show run
+
 # === Style ===
-# Using Anonymous Pro
+# Setting font
 font pango:$font
 
 # Enable transparancy with xcompmgr
@@ -62,8 +66,8 @@ focus_on_window_activation smart
 # Hides borders when there's only one window
 hide_edge_borders none
 
-# Setting the runner
-set $runner exec rofi -padding 300 -fullscreen -separator-style none -show run
+# Setting if focus should follow mouse hover
+focus_follows_mouse no
 
 # Starting NetworkManager applet
 exec --no-startup-id nm-applet
@@ -118,16 +122,16 @@ bindsym $mod+Shift+space        floating toggle
 bindsym $mod+space              focus mode_toggle
 
 # switch to workspace
-bindsym $mod+1                  workspace 1
-bindsym $mod+2                  workspace 2
-bindsym $mod+3                  workspace 3
-bindsym $mod+4                  workspace 4
-bindsym $mod+5                  workspace 5
-bindsym $mod+6                  workspace 6
-bindsym $mod+7                  workspace 7
-bindsym $mod+8                  workspace 8
-bindsym $mod+9                  workspace 9
-bindsym $mod+0                  workspace 10
+bindsym $mod+1                  workspace number 1
+bindsym $mod+2                  workspace number 2
+bindsym $mod+3                  workspace number 3
+bindsym $mod+4                  workspace number 4
+bindsym $mod+5                  workspace number 5
+bindsym $mod+6                  workspace number 6
+bindsym $mod+7                  workspace number 7
+bindsym $mod+8                  workspace number 8
+bindsym $mod+9                  workspace number 9
+bindsym $mod+0                  workspace number 10
 
 # move focused container to workspace
 bindsym $mod+Shift+1            move container to workspace 1
@@ -146,7 +150,7 @@ bindsym $mod+Shift+c            reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r            restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec i3-msg exit
+bindsym $mod+Shift+e		exec i3-msg exit
 
 # == Modes ==
 # Resize window mode
