@@ -46,12 +46,17 @@ set $black #090e11
 set $white #ecf0f1
 set $gray #2c3e50
 set $light_gray #bdc3c7
-set $red #c0392b
+set $red #e04132
 set $green #bdc3c7
 set $yellow #f39c12
 set $blue #2980b9
 set $purple #8e44ad
 set $dark_green #16a085
+
+set $bar_bg #282828
+set $bar_sep #1d2021
+set $bar_focus #3c3836
+set $bar_color #d5c4a1
 
 # Color classes                 border          backgr          text            indicator       child_border
 client.focused                  $blue           $blue           $white          $purple         $light_gray
@@ -180,14 +185,14 @@ bar {
         position top
         status_command i3status
         colors {
-                background              $gray
-                separator               $light_gray
+                background              $bar_bg
+                separator               $bar_sep
                 statusline              $white
                 # Workspace type        border          background      text
-                focused_workspace       $gray           $light_gray     $gray
-                inactive_workspace      $gray           $gray           $light_gray
-                active_workspace        $gray           $gray           $gray
-                urgent_workspace        $red            $black          $red
+                focused_workspace       $bar_sep        $bar_focus      $bar_color
+                inactive_workspace      $bar_sep        $bar_bg         $bar_color
+                active_workspace        $bar_sep        $bar_bg         $bar_color
+                urgent_workspace        $red            $bar_bg         $red
                 binding_mode            $blue           $blue           $white
         }
 }
