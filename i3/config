@@ -59,10 +59,10 @@ set $bar_focus #3c3836
 set $bar_color #d5c4a1
 
 # Color classes                 border          backgr          text            indicator       child_border
-client.focused                  $blue           $blue           $white          $purple         $light_gray
-client.unfocused                $black          $black          $white          $purple         $light_gray
-client.focused_inactive         $black          $black          $white          $purple         $light_gray
-client.urgent                   $red            $red            $white          $purple         $light_gray
+client.focused                  $bar_sep        $bar_focus      $bar_color      $purple         $light_gray
+client.unfocused                $bar_sep        $bar_bg         $bar_color      $purple         $light_gray
+client.focused_inactive         $bar_sep        $bar_bg         $bar_color      $purple         $light_gray
+client.urgent                   $red            $red            $bar_color      $purple         $light_gray
 
 # === Settings ===
 # Handles labeling windows to urgent
