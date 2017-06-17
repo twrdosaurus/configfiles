@@ -17,7 +17,8 @@ set $left h
 set $mod Mod4
 
 # The font to use
-set $font               "Clear Sans" 11px
+set $font               "Source Code Pro for Powerline"
+set $font-size          11px
 
 # Pixels or points to resize by
 set $resize-small       5
@@ -27,13 +28,13 @@ set $resize-big         20
 set $bg-image           ~/Pictures/backgrounds/i3-bg.*
 
 # Setting the terminal och choice
-set $terminal konsole
+set $terminal termite -e /usr/bin/fish
 # Setting the runner
 set $runner exec rofi -padding 300 -fullscreen -separator-style none -show run
 
 # === Style ===
 # Setting font
-font pango:$font
+font pango:$font $font-size
 
 # Enable transparancy with xcompmgr
 exec xcompmgr -n
@@ -180,8 +181,7 @@ bindsym $mod+r mode "resize"
 # Default Status bar, shown only on the laptop
 bar {
         id statusbar
-        output LVDS1
-        tray_output LVDS1
+        tray_output primary
         position top
         status_command i3status
         colors {
