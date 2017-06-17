@@ -183,7 +183,6 @@ bar {
         id statusbar
         tray_output primary
         position top
-        status_command i3status
         colors {
                 background              $bar_bg
                 separator               $bar_sep
