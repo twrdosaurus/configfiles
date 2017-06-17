@@ -202,6 +202,6 @@ bar {
 #       http://wiki.linuxquestions.org/wiki/XF86_keyboard_symbols
 #       https://specifications.freedesktop.org/mpris-spec/latest/Player_Interface.html
 #       https://specifications.freedesktop.org/mpris-spec/latest/
-bindsym XF86AudioPlay exec dbus-send --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.PlayPause
-bindsym XF86AudioNext exec dbus-send --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Next
-bindsys XF86AudioPrev exec dbus-send --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Previous
+# bindsym XF86AudioPlay exec dbus-send --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.PlayPause
+# bindsym XF86AudioNext exec dbus-send --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Next
+# bindsys XF86AudioPrev exec dbus-send --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Previous
