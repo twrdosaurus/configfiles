@@ -30,7 +30,7 @@ set $bg-image           ~/Pictures/backgrounds/i3-bg.*
 # Setting the terminal och choice
 set $terminal termite -e /usr/bin/fish
 # Setting the runner
-set $runner exec rofi -padding 300 -fullscreen -separator-style none -show run
+set $runner exec rofi -separator-style none -show run -location 2 -yoffset 19 -font "Source Code Pro for Powerline 12" -padding 20
 
 # === Style ===
 # Setting font
