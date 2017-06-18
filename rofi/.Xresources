@@ -1,8 +1,23 @@
-! ------------------------------------------------------------------------------
-! ROFI Color theme
-! ------------------------------------------------------------------------------
+!-------------------------------------------------------------------------------
+! Rofi color theme
+!
+! Based on the Gruvbox color scheme for Vim by morhetz
+! https://github.com/morhetz/gruvbox
+!
+! File: gruvbox-dark.theme
+! Desc: Gruvbox dark color theme for Rofi
+! Author: bardisty <b@bah.im>
+! Source: https://github.com/bardisty/gruvbox-rofi
+! Modified: Sat Oct 22 2016 03:11:40 PDT -0700
+!-------------------------------------------------------------------------------
+
+! Enable the extended coloring options
 rofi.color-enabled: true
-rofi.color-window: argb:b5090e11, argb:b5090e11, argb:02c3e50
-rofi.color-normal: argb:0090e11, #ecf0f1, argb:0090e11, #2980b9, #2c3e50
-rofi.color-active: argb:0090e11, #ecf0f1, argb:0090e11, argb:0090e11, #ecf0f1
-rofi.color-urgent: argb:0fdf6e3, #c0392b, argb:0eee8d5, #c0392b, #ecf0f1
+
+!                  bg       border   separator
+rofi.color-window: #282828, #282828, #a89984
+
+!                  bg       fg       bg-alt   hl-bg    hl-fg
+rofi.color-normal: #282828, #ebdbb2, #282828, #458588, #ebdbb2
+rofi.color-active: #d79921, #282828, #d79921, #fabd2f, #282828
+rofi.color-urgent: #cc241d, #282828, #cc241d, #fb4934, #282828
